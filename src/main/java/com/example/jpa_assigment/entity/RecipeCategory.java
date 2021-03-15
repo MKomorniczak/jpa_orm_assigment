@@ -1,6 +1,7 @@
 package com.example.jpa_assigment.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,6 +17,25 @@ public class RecipeCategory {
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "recipe_id"))
     private List<Recipe> recipies;
+
+    public void addRecipe(Recipe recipe){
+        if (recipies == null){
+            recipies = new ArrayList<>();
+        }
+        recipies.add(recipe);
+        recipe.setCategories(this);
+    }
+
+    public void removeRecipe(Recipe recipe){
+        if (recipies !=null){
+            recipies = new ArrayList<>();
+        }
+        if (recipe ==null) throw new IllegalArgumentException("recipe is null");
+        recipies.remove(recipe);
+        recipe.setCategories(null);
+    }
+
+
 
     public int getCategoryId() {
         return categoryId;
