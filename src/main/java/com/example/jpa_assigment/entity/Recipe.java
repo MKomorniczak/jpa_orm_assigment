@@ -33,7 +33,7 @@ public class Recipe {
     }
 
     public void removeRecipeIngredient(RecipeIngredient recipeIngredient){
-        if (recipeIngredients != null){
+        if (recipeIngredients == null){
             recipeIngredients = new ArrayList<>();
         }
         if (recipeIngredient == null) throw new IllegalArgumentException("recipeIngredient is null");
@@ -50,7 +50,7 @@ public class Recipe {
     }
 
     public void removeRecipeCategory(RecipeCategory recipeCategory){
-        if (categories != null){
+        if (categories == null){
             categories = new ArrayList<>();
         }
         if (recipeCategory == null) throw new IllegalArgumentException("recipeCategory is null");
@@ -114,6 +114,11 @@ public class Recipe {
     }
 
     public Recipe() {
+    }
+
+    public Recipe(String recipeName, RecipeInstruction instruction) {
+        this.recipeName = recipeName;
+        this.instruction = instruction;
     }
 
     @Override

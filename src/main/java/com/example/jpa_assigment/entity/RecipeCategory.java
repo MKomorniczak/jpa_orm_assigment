@@ -23,16 +23,14 @@ public class RecipeCategory {
             recipies = new ArrayList<>();
         }
         recipies.add(recipe);
-        recipe.addRecipeCategory(this);
     }
 
     public void removeRecipe(Recipe recipe){
-        if (recipies !=null){
+        if (recipies ==null){
             recipies = new ArrayList<>();
         }
         if (recipe ==null) throw new IllegalArgumentException("recipe is null");
         recipies.remove(recipe);
-        recipe.removeRecipeCategory(null);
     }
 
 
