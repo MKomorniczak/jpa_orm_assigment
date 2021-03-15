@@ -46,7 +46,7 @@ public class Recipe {
             categories = new ArrayList<>();
         }
         categories.add(recipeCategory);
-        recipeCategory.setRecipies(this);
+        recipeCategory.addRecipe(this);
     }
 
     public void removeRecipeCategory(RecipeCategory recipeCategory){

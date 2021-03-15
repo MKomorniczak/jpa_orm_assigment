@@ -23,7 +23,7 @@ public class RecipeCategory {
             recipies = new ArrayList<>();
         }
         recipies.add(recipe);
-        recipe.setCategories(this);
+        recipe.addRecipeCategory(this);
     }
 
     public void removeRecipe(Recipe recipe){
@@ -32,7 +32,7 @@ public class RecipeCategory {
         }
         if (recipe ==null) throw new IllegalArgumentException("recipe is null");
         recipies.remove(recipe);
-        recipe.setCategories(null);
+        recipe.removeRecipeCategory(null);
     }
 
 
